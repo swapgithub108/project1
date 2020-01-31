@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type ="text/css"  href ="C:\Users\Swapnil.Naik\Desktop\SWAP personal\A TRAINING\jquery\index.css">
+        
+    </head>
+    <body>
+        <h1>My List of Things to DO</h1>
+        <ul>
+            <li>1.CHANT 16 rounds<a href="google.com">Google</a></li><hr>
+            <li>2. STUDY DAILY</li><hr>
+            <li>3.EXERCISE </li><hr>
+        </ul>
+        <div class ="pics">
+            <img src="./d1.jpg">
+            <br>
+            <img src="./d2.jpg">
+
+        </div>
+        <input type="text" id ="sometext" value="">
+        <button>SUBMIT</button>
+        <script>
+            $(document).ready(function () {
+                $("button").click(function () {
+                    alert("Value:"+$("#sometext").val());
+                });
+
+                $("h1").css("color","red")
+            $("img").attr("border","5px solid black")         
+
+            });
+            
+            
+        </script>
+    </body>
+
+</html>
