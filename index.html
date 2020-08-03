@@ -37,21 +37,28 @@ If that staggering rate of growth continues, the total doubling every 20 years, 
 <p>Majority of the cars today are powered by fuels like Gasoline and Diesel, with a few electrically powered cars now coming to the forefront, thanks to the rapid progress in the required technologies .
   Still over 97% of the Cars in the World operate using Gasoline and Diesel , and that number would still by as high as 93 % even in 2030 .
   <b>With the Oil Reserves of the World being a finite resource, it would make a worthwhile effort to 
-  study the various factors that impact the fuel efficiency of cars and highlight the major ones</b>
-  While driving habits ( agrresive vs moderate) and maintenance of the vehicle ( engine oil change, tire tread) are factors, but the major difference to fuel economy is impacted by 3 factors :
-  <ul class="list-group">
-  <li class="list-group-item">1. Number of Cyclinders in the Car Engine</li>
-  <li class="list-group-item">2. Type of fuel used by the Car Engine</li>
-  <li class="list-group-item">3. Driving in city vs Driving on Highways</li>
+  study the various factors that impact the fuel efficiency of cars and highlight the major ones .</b>
+  <u>While driving habits ( agrresive vs moderate) and maintenance of the vehicle ( engine oil change, tire tread) are considerable factors, but the major difference to fuel economy is impacted by 3 most significant factors : </u>
+  <ul >
+  <li > Number of Cyclinders in the Car Engine</li>
+  <li > Type of fuel used by the Car Engine</li>
+  <li > Driving in city vs Driving on Highways</li>
   </ul>
+  <h2>#1 Exploring Number of Engine Cylinders</h2>
+
+<p> The engines are traditionally built to create a perfect balance of power and fuel efficiency . Higher the number of cylinders in an engine , more the power it can generate at any given point in time, but unfortunately it lowers the fuel efficiency of the automobile since that much more fuel is ingested and burned in each cylinder . <i><u>The sweet spot for enough power for regular passenger cars coupled with a good fuel mileage has been found at <b style ="color:red">4 cylinder engines</b> ,</i></u> as can see seen in the chart below and annotated by the <b style="color:red">red line</b> . Y -axis is the number of cylinders and X-axis is the major car manufacturers in the world today.</p>
       <svg width=1200 height =800 style="border:1px solid black">
+        <line x1="25" y1="423" x2="1200" y2="423" style="stroke:rgb(255,0,0);stroke-width:5" /> 
+        <!-- annotation
+  <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
        <div width =1000 height =50 >
        <h3 align = center style ="font-color:white">NUMBER OF ENGINE CYLINDERS IN MAJOR CAR MAKES  </h3>
      </div>
   </svg>
   <div>
-  <div >
-    <a href="index.html" class="btn btn-primary">Go to Home Page</a>
+  <div align = "center">
+    <a align = "center " href="index.html" class="btn btn-primary">Fuel Type and Fuel Efficiency >></a>
+    
   </div>
 
   <script type="text/javascript">
@@ -67,7 +74,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,12]).range([height,0]);
 
-d3.select("svg").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 11).attr('x', function(d,i) {return 11*i}).attr("height", 0).attr('y',600).transition().duration(3000).delay(1000).attr('y', (d) => y(d.EngineCylinders)).attr("height", (d) => y(0) - y(d.EngineCylinders)).attr("fill",function(d){
+d3.select("svg").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 11).attr('x', function(d,i) {return 11*i}).attr("height", 0).attr('y',600).transition().duration(8000).delay(6000).attr('y', (d) => y(d.EngineCylinders)).attr("height", (d) => y(0) - y(d.EngineCylinders)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
