@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body >
+    
+        <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h1> FUEL AND FUEL EFFICIENCY </h1>
+      <img src="elegant-gas-panel.png" class="img-fluid" alt="Responsive image">
+       </div>
+     </div>
+     
+  <h2> Fuel Type and Driving Condition Impact on Fuel Efficiency</h2>
+
+<p> As we saw in the previous chart, the 4 cylinder engine is the most common type of engine found in Cars. Let's further explore the fuel efficiency numbers for 4 cylinder engines , when driven on A. Highways and B. Cities for <b>Gasoline </b>engines first: </p>
+      
+      <svg id ="G1" width=550 height =610 style="border:1px solid black">
+        <line x1="25" y1="110" x2="1200" y2="110" style="stroke:rgb(255,0,0);stroke-width:5" /> 
+        <text x="350" y="30" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
+        <text x="350" y="50" font-family="sans-serif" font-size="12px" fill="red">Net HIGHWAY Average 31.4 mpg</text>
+        <!-- annotation
+  <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
+      
+  </svg>
+  <svg id ="G2"width=550 height =610 style="border:1px solid black">
+        <line x1="25" y1="213" x2="1200" y2="213" style="stroke:rgb(255,0,0);stroke-width:5" /> 
+        <text x="370" y="120" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
+        <text x="370" y="140" font-family="sans-serif" font-size="12px" fill="red">Net CITY Average 23.4 mpg</text>
+        <!-- annotation
+  <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
+      
+  </svg>
+  <br></br>
+  <div>
+  <div align = "center">
+    <a align = "center " href="Diesel fuel efficiency.html" class="btn btn-primary">how do Diesel Engines fare ? >></a>
+    
+  </div>
+
+  <script type="text/javascript">
+d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/gasoline%204%20cylinder.csv", d3.autoType).then(function(data) { 
+  
+console.log(data[0].EngineCylinders)
+
+var width = 500;
+var height = 500;
+var margin = 25;
+var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
+var y = d3.scaleLinear().domain([0,37]).range([height,0]);
+
+d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(1000).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
+  if (d.Make === 'Acura' ) {return "#bd3119";}
+  if (d.Make === 'Alpha Romeo' ) {return "yellow";}
+  if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
+  if (d.Make === 'Audi' ) {return "#832cc9";}
+  if (d.Make === 'Bentley' ) {return "#c4c223";}
+  if (d.Make === 'BMW' ) {return "#fc9803";}
+  if (d.Make === 'Buick' ) {return "#4642d4";}
+  if (d.Make === 'Cadillac' ) {return "#ab2c61";}
+  if (d.Make === 'Chevrolet' ) {return "#92c22b";}
+  if (d.Make === 'Chrysler' ) {return "#3848b0";}
+  if (d.Make === 'Dodge' ) {return "#cf3c2b";}
+  if (d.Make === 'Ferrari' ) {return "#c9b320"}
+  if (d.Make === 'Fiat' ) {return "#72b57f";}
+  if (d.Make === 'Ford' ) {return "#7a6137"}
+    if (d.Make === 'Genesis' ) {return "#b528b3";}
+  if (d.Make === 'GMC' ) {return "#63c6cf";}
+  if (d.Make === 'Honda' ) {return "#5f599c"}
+  if (d.Make === 'Infiniti' ) {return "#dbde31";}
+   if (d.Make === 'Jaguar' ) {return "#4e803d";}
+  if (d.Make === 'Jeep' ) {return "#948182"}
+  if (d.Make === 'Kia' ) {return "#b58333";}
+  if (d.Make === 'Hyundai' ) {return "#9e738a"}
+ if (d.Make === 'Lamborghini' ) {return "#21dbc9";}
+  if (d.Make === 'Land Rover' ) {return "#609ebd"}
+  if (d.Make === 'Lexus' ) {return "#3c661c";}
+  if (d.Make === 'Lincoln' ) {return "#8a90cf"}
+if (d.Make === 'Lotus' ) {return "#576360";}
+  if (d.Make === 'Maserati' ) {return "#fa07c9"}
+  if (d.Make === 'Mazda' ) {return "#d1edcc";}
+  if (d.Make === 'McLaren Automotive' ) {return "#27535c"}
+    if (d.Make === 'Mercedes-Benz' ) {return "#a4fcb0";}
+  if (d.Make === 'MINI' ) {return "#ffa305"}
+  if (d.Make === 'Mitsubishi' ) {return "#475443";}
+  if (d.Make === 'Nissan' ) {return "#9c6119"}
+ if (d.Make === 'Porsche' ) {return "#053efa";}
+  if (d.Make === 'Rolls-Royce' ) {return "#79f765"}
+  if (d.Make === 'Roush Performance' ) {return "#d9d502";}
+  if (d.Make === 'smart' ) {return "#036116"}
+    if (d.Make === 'Subaru' ) {return "#e0c143"}
+ if (d.Make === 'Toyota' ) {return "#99020e";}
+  if (d.Make === 'Volkswagen' ) {return "#ded6a4"}
+  if (d.Make === 'Volvo' ) {return "#04a4c4";}
+  if (d.Make === 'Nissan' ) {return "#7c9970"}
+})
+d3.select("svg").append("g").attr("transform", "translate("+margin+","+margin+")").call(d3.axisLeft(y));
+d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x)).selectAll("text")  
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-90)")
+d3.select('body').append('div').attr('id', 'tooltip').attr('style', 'position: absolute; opacity: 0;');
+d3.selectAll("rect").data(data).on('mouseover', function(d) {
+ d3.select('#tooltip').transition().duration(200).style('opacity', 1).text(d.AverageHighwayMPG+" mpg "+d.Make).style("left",(d3.event.pageX)+"px").style("top",(d3.event.pageY)+"px")
+ }) .on('mouseout', function() {
+ d3.select('#tooltip').style('opacity', 0)
+ })
+
+
+svg.selectAll("text").data(data).enter().append('text').text(function (d) {return d.Make}).attr("transform","rotate(-90)").attr('x', function(d,i) {return ((10*i)+5)}).attr('y',200)
+svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 200) + ")")
+      .style("text-anchor", "middle")
+      .text("Date");
+
+
+})
+d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/gasoline%204%20cylinder.csv", d3.autoType).then(function(data) { 
+  
+console.log(data[0].EngineCylinders)
+
+var width = 500;
+var height = 500;
+var margin = 25;
+var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
+var y = d3.scaleLinear().domain([0,37]).range([height,0]);
+
+d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(1000).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
+  if (d.Make === 'Acura' ) {return "#bd3119";}
+  if (d.Make === 'Alpha Romeo' ) {return "yellow";}
+  if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
+  if (d.Make === 'Audi' ) {return "#832cc9";}
+  if (d.Make === 'Bentley' ) {return "#c4c223";}
+  if (d.Make === 'BMW' ) {return "#fc9803";}
+  if (d.Make === 'Buick' ) {return "#4642d4";}
+  if (d.Make === 'Cadillac' ) {return "#ab2c61";}
+  if (d.Make === 'Chevrolet' ) {return "#92c22b";}
+  if (d.Make === 'Chrysler' ) {return "#3848b0";}
+  if (d.Make === 'Dodge' ) {return "#cf3c2b";}
+  if (d.Make === 'Ferrari' ) {return "#c9b320"}
+  if (d.Make === 'Fiat' ) {return "#72b57f";}
+  if (d.Make === 'Ford' ) {return "#7a6137"}
+    if (d.Make === 'Genesis' ) {return "#b528b3";}
+  if (d.Make === 'GMC' ) {return "#63c6cf";}
+  if (d.Make === 'Honda' ) {return "#5f599c"}
+  if (d.Make === 'Infiniti' ) {return "#dbde31";}
+   if (d.Make === 'Jaguar' ) {return "#4e803d";}
+  if (d.Make === 'Jeep' ) {return "#948182"}
+  if (d.Make === 'Kia' ) {return "#b58333";}
+  if (d.Make === 'Hyundai' ) {return "#9e738a"}
+ if (d.Make === 'Lamborghini' ) {return "#21dbc9";}
+  if (d.Make === 'Land Rover' ) {return "#609ebd"}
+  if (d.Make === 'Lexus' ) {return "#3c661c";}
+  if (d.Make === 'Lincoln' ) {return "#8a90cf"}
+if (d.Make === 'Lotus' ) {return "#576360";}
+  if (d.Make === 'Maserati' ) {return "#fa07c9"}
+  if (d.Make === 'Mazda' ) {return "#d1edcc";}
+  if (d.Make === 'McLaren Automotive' ) {return "#27535c"}
+    if (d.Make === 'Mercedes-Benz' ) {return "#a4fcb0";}
+  if (d.Make === 'MINI' ) {return "#ffa305"}
+  if (d.Make === 'Mitsubishi' ) {return "#475443";}
+  if (d.Make === 'Nissan' ) {return "#9c6119"}
+ if (d.Make === 'Porsche' ) {return "#053efa";}
+  if (d.Make === 'Rolls-Royce' ) {return "#79f765"}
+  if (d.Make === 'Roush Performance' ) {return "#d9d502";}
+  if (d.Make === 'smart' ) {return "#036116"}
+    if (d.Make === 'Subaru' ) {return "#e0c143"}
+ if (d.Make === 'Toyota' ) {return "#99020e";}
+  if (d.Make === 'Volkswagen' ) {return "#ded6a4"}
+  if (d.Make === 'Volvo' ) {return "#04a4c4";}
+  if (d.Make === 'Nissan' ) {return "#7c9970"}
+})
+d3.select("svg").append("g").attr("transform", "translate("+margin+","+margin+")").call(d3.axisLeft(a));
+d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(d3.axisBottom(b)).selectAll("text")  
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-90)")
+d3.select('body').append('div').attr('id', 'tooltip').attr('style', 'position: absolute; opacity: 0;');
+d3.selectAll("rect").data(data).on('mouseover', function(d) {
+ d3.select('#tooltip').transition().duration(200).style('opacity', 1).text(d.AverageCityMPG+" mpg "+d.Make).style("left",(d3.event.pageX)+"px").style("top",(d3.event.pageY)+"px")
+ }) .on('mouseout', function() {
+ d3.select('#tooltip').style('opacity', 0)
+ })
+
+
+svg.selectAll("text").data(data).enter().append('text').text(function (d) {return d.Make}).attr("transform","rotate(-90)").attr('x', function(d,i) {return ((10*i)+5)}).attr('y',200)
+svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 200) + ")")
+      .style("text-anchor", "middle")
+      .text("Date");
+
+
+})
+
+</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
