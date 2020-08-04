@@ -59,7 +59,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,41]).range([height,0]);
 
-d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(1000).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
+d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(2500).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
@@ -138,7 +138,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,41]).range([height,0]);
 
-d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(1000).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
+d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(2500).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}

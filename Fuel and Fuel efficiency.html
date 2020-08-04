@@ -26,7 +26,7 @@
       
       <svg id ="G1" width=550 height =610 style="border:1px solid black">
         <line x1="25" y1="110" x2="1200" y2="110" style="stroke:rgb(255,0,0);stroke-width:5" /> 
-        <line x1="410" y1="52" x2="410" y2="105" style="stroke:rgb(255,0,0);stroke-width:1" /> 
+        <line x1="325" y1="75" x2="325" y2="200" style="stroke:rgb(255,0,0);stroke-width:1" /> 
         <text x="350" y="30" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
         <text x="350" y="50" font-family="sans-serif" font-size="12px" fill="red">Net HIGHWAY Average 31.4 mpg</text>
         <!-- annotation
@@ -60,7 +60,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,37]).range([height,0]);
 
-d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(1000).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
+d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4500).delay(2500).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
@@ -139,7 +139,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,37]).range([height,0]);
 
-d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(1000).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
+d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4500).delay(2500).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
