@@ -15,29 +15,33 @@
     
         <div class="jumbotron jumbotron-fluid">
   <div class="container">
-      <h1> FUEL AND FUEL EFFICIENCY </h1>
-      <img src="elegant-gas-panel.png" class="img-fluid" alt="Responsive image">
+      <h1> Explore more  </h1>
+      
        </div>
      </div>
      
-  <h2> Fuel Type and Driving Condition Impact on Fuel Efficiency</h2>
+  <h2> 6 cylinder Diesel Engine performances </h2>
 
-<p> As we saw in the previous chart, the 4 cylinder engine is the most common type of engine found in Cars. Let's further explore the fuel efficiency numbers for 4 cylinder engines , when driven on A. Highways and B. Cities for <b>Gasoline </b>engines first: </p>
-      
+<p> With only 2 auto makers in this market segment, it is easy to spot the winner, albiet by a thin margin !! </p>
+<br></br>
+
+
+
+
       <svg id ="G1" width=550 height =610 style="border:1px solid black">
-        <line x1="25" y1="110" x2="1200" y2="110" style="stroke:rgb(255,0,0);stroke-width:5" /> 
-        <line x1="450" y1="55" x2="450" y2="110" style="stroke:rgb(255,0,0);stroke-width:1" /> 
-        <text x="350" y="30" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
-        <text x="350" y="50" font-family="sans-serif" font-size="12px" fill="red">Net HIGHWAY Average 31.4 mpg</text>
+        
+        <line x1="255" y1="42" x2="255" y2="170" style="stroke:rgb(255,0,0);stroke-width:1" /> 
+        <text x="255" y="20" font-family="sans-serif" font-size="12px" fill="red">For 6 cylinder Diesel engines :</text>
+        <text x="255" y="40" font-family="sans-serif" font-size="12px" fill="red">BMW it is with  @ 29 mpg on highway !!</text>
         <!-- annotation
   <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
       
   </svg>
   <svg id ="G2"width=550 height =610 style="border:1px solid black">
-        <line x1="25" y1="213" x2="1200" y2="213" style="stroke:rgb(255,0,0);stroke-width:5" /> 
-        <line x1="450" y1="150" x2="450" y2="210" style="stroke:rgb(255,0,0);stroke-width:1" /> 
-        <text x="370" y="120" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
-        <text x="370" y="140" font-family="sans-serif" font-size="12px" fill="red">Net CITY Average 23.4 mpg</text>
+       
+        <line x1="145" y1="238" x2="290" y2="120" style="stroke:rgb(255,0,0);stroke-width:1" /> 
+        <text x="290" y="120" font-family="sans-serif" font-size="12px" fill="red">For 6 cylinder  Diesel Engines :</text>
+        <text x="290" y="140" font-family="sans-serif" font-size="12px" fill="red">Again ,BMW it is with  In-City mileage @23 mpg!!</text>
         <!-- annotation
   <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
       
@@ -45,12 +49,13 @@
   <br></br>
   <div>
   <div align = "center">
-    <a align = "center " href="Diesel fuel efficiency.html" class="btn btn-primary">how do Diesel Engines fare ? >></a>
+     <a align = "center " href="index.html" class="btn btn-primary"><< Home</a>
+    <a align = "center " href="Explore.html" class="btn btn-primary">Explore More>></a>
     
   </div>
 
   <script type="text/javascript">
-d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/gasoline%204%20cylinder.csv", d3.autoType).then(function(data) { 
+d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/Diesel6cyl.csv", d3.autoType).then(function(data) { 
   
 console.log(data[0].EngineCylinders)
 
@@ -58,9 +63,9 @@ var width = 500;
 var height = 500;
 var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
-var y = d3.scaleLinear().domain([0,37]).range([height,0]);
+var y = d3.scaleLinear().domain([0,41]).range([height,0]);
 
-d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4500).delay(2500).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
+d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 240).attr('x', function(d,i) {return 240*i}).attr("height", 0).attr('y',500).transition().duration(4500).delay(2500).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
@@ -129,7 +134,7 @@ svg.append("text")
 
 
 })
-d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/gasoline%204%20cylinder.csv", d3.autoType).then(function(data) { 
+d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/Diesel6cyl.csv", d3.autoType).then(function(data) { 
   
 console.log(data[0].EngineCylinders)
 
@@ -137,9 +142,9 @@ var width = 500;
 var height = 500;
 var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
-var y = d3.scaleLinear().domain([0,37]).range([height,0]);
+var y = d3.scaleLinear().domain([0,41]).range([height,0]);
 
-d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 15.75).attr('x', function(d,i) {return 15.75*i}).attr("height", 0).attr('y',500).transition().duration(4500).delay(2500).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
+d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 240).attr('x', function(d,i) {return 240*i}).attr("height", 0).attr('y',500).transition().duration(4500).delay(2500).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
